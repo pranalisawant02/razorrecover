@@ -428,16 +428,3 @@ The system focuses on measurable revenue recovery while maintaining bounded work
 B.Tech – Artificial Intelligence & Machine Learning
 
 ```
-
-## ✅ Now do this
-
-1. Open `README.md`
-2. **Ctrl + A**
-3. Delete everything
-4. Paste the complete content above
-5. Press **Ctrl + S**
-
-Then reply **DONE**.
-
-After that, we go **straight to GitHub repository creation and upload**. 🚀 
-```
