@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RazorRecover | Revenue Recovery</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="brand">
+
+                <div class="brand-mark">
+                    <span>R</span>
+                </div>
+
+                <div class="brand-text">
+                    <h2>RazorRecover</h2>
+                    <p>Revenue Recovery</p>
+                </div>
+
+            </div>
+
+
+            <div class="nav-label">WORKSPACE</div>
+
+
+            <nav class="sidebar-nav">
+
+                <a href="#" class="nav-item active">
+                    <span class="nav-icon">▦</span>
+                    Dashboard
+                </a>
+
+                <a href="#recovery" class="nav-item">
+                    <span class="nav-icon">↻</span>
+                    Recovery Engine
+                </a>
+
+                <a href="#insights" class="nav-item">
+                    <span class="nav-icon">◈</span>
+                    Intelligence
+                </a>
+
+                <a href="#transactions" class="nav-item">
+                    <span class="nav-icon">▤</span>
+                    Transactions
+                </a>
+
+            </nav>
+
+
+            <div class="sidebar-bottom">
+
+                <div class="engine-card">
+
+                    <div class="engine-status">
+                        <span class="status-indicator"></span>
+                        SYSTEM OPERATIONAL
+                    </div>
+
+                    <p>
+                        Recovery engine is actively monitoring transactions.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="main-content">
+
+
+            <!-- ================= HEADER ================= -->
+
+            <header class="topbar">
+
+                <div class="header-content">
+
+                    <div class="eyebrow">
+
+                        <span class="eyebrow-dot"></span>
+
+                        RECOVERY OPERATIONS
+
+                    </div>
+
+
+                    <h1>Revenue Recovery</h1>
+
+
+                    <p class="subtitle">
+
+                        Monitor payment failures, execute recovery workflows,
+                        and track recovered revenue.
+
+                    </p>
+
+                </div>
+
+
+                <div class="top-actions">
+
+                    <div class="api-status">
+
+                        <span class="pulse"></span>
+
+                        <span>LIVE</span>
+
+                    </div>
+
+
+                    <button
+                        class="refresh-icon-btn"
+                        onclick="refreshDashboard()"
+                        title="Refresh dashboard">
+
+                        ↻
+
+                    </button>
+
+                </div>
+
+            </header>
+
+
+            <!-- ================= METRICS ================= -->
+
+            <section class="metrics">
+
+
+                <!-- TOTAL -->
+
+                <article class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span class="metric-label">
+                            TOTAL TRANSACTIONS
+                        </span>
+
+                        <span class="metric-icon neutral">
+                            ▦
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="metric-value"
+                        id="totalTransactions">
+
+                        0
+
+                    </div>
+
+
+                    <p class="metric-footer">
+                        All monitored transactions
+                    </p>
+
+                </article>
+
+
+                <!-- FAILED -->
+
+                <article class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span class="metric-label">
+                            FAILED PAYMENTS
+                        </span>
+
+                        <span class="metric-icon danger-icon">
+                            !
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="metric-value danger-value"
+                        id="failedTransactions">
+
+                        0
+
+                    </div>
+
+
+                    <p class="metric-footer">
+                        Pending recovery decisions
+                    </p>
+
+                </article>
+
+
+                <!-- RECOVERED -->
+
+                <article class="metric-card">
+
+                    <div class="metric-top">
+
+                        <span class="metric-label">
+                            RECOVERED
+                        </span>
+
+                        <span class="metric-icon success-icon">
+                            ✓
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="metric-value success-value"
+                        id="recoveredTransactions">
+
+                        0
+
+                    </div>
+
+
+                    <p class="metric-footer">
+                        Successfully recovered payments
+                    </p>
+
+                </article>
+
+
+                <!-- REVENUE -->
+
+                <article class="metric-card revenue-card">
+
+                    <div class="metric-top">
+
+                        <span class="metric-label">
+                            RECOVERED REVENUE
+                        </span>
+
+                        <span class="metric-icon revenue-icon">
+                            ₹
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="metric-value revenue-value"
+                        id="amountRecovered">
+
+                        ₹0
+
+                    </div>
+
+
+                    <p class="metric-footer">
+                        Total revenue recovered
+                    </p>
+
+                </article>
+
+
+            </section>
+
+
+            <!-- ================= AI INSIGHTS ================= -->
+
+            <section
+                class="insights-panel"
+                id="insights">
+
+
+                <div class="insights-header">
+
+
+                    <div>
+
+                        <span class="section-label">
+                            AI INTELLIGENCE
+                        </span>
+
+
+                        <h2>Recovery Insights</h2>
+
+
+                        <p>
+                            AI-driven analysis of revenue risk and recovery
+                            opportunities.
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="loadInsights()">
+
+                        ↻ Refresh Insights
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="insights-grid">
+
+
+                    <!-- REVENUE AT RISK -->
+
+                    <article class="insight-card">
+
+                        <span class="insight-label">
+                            REVENUE AT RISK
+                        </span>
+
+
+                        <strong id="revenueAtRisk">
+                            ₹0
+                        </strong>
+
+
+                        <p>
+                            Revenue from currently failed transactions
+                        </p>
+
+                    </article>
+
+
+                    <!-- RECOVERABLE -->
+
+                    <article class="insight-card">
+
+                        <span class="insight-label">
+                            RECOVERABLE
+                        </span>
+
+
+                        <strong id="recoverableTransactions">
+                            0
+                        </strong>
+
+
+                        <p>
+                            Transactions eligible for automatic recovery
+                        </p>
+
+                    </article>
+
+
+                    <!-- COMMON FAILURE -->
+
+                    <article class="insight-card">
+
+                        <span class="insight-label">
+                            COMMON FAILURE
+                        </span>
+
+
+                        <strong id="commonFailure">
+                            -
+                        </strong>
+
+
+                        <p>
+                            Most frequently detected failure reason
+                        </p>
+
+                    </article>
+
+
+                    <!-- AI RECOMMENDATION -->
+
+                    <article class="insight-card strategy-card">
+
+                        <span class="insight-label">
+                            AI RECOMMENDATION
+                        </span>
+
+
+                        <strong id="recommendedStrategy">
+                            No analysis available
+                        </strong>
+
+
+                        <p>
+                            Recommended next recovery action
+                        </p>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- ================= RECOVERY ENGINE ================= -->
+
+            <section
+                class="recovery-panel"
+                id="recovery">
+
+
+                <div class="recovery-content">
+
+
+                    <div class="panel-copy">
+
+
+                        <div class="section-header">
+
+                            <span class="section-badge">
+                                AI RECOVERY ENGINE
+                            </span>
+
+                        </div>
+
+
+                        <h2>Execute Recovery Workflow</h2>
+
+
+                        <p>
+
+                            The recovery engine evaluates failed transactions,
+                            applies AI recovery decisions, enforces stopping
+                            rules, and executes eligible automatic recovery
+                            actions.
+
+                        </p>
+
+
+                        <div class="workflow-tags">
+
+                            <span>Detection</span>
+
+                            <span>AI Analysis</span>
+
+                            <span>Recovery</span>
+
+                            <span>Audit Trail</span>
+
+                        </div>
+
+
+                    </div>
+
+
+                    <div class="recovery-stat">
+
+                        <span class="recovery-stat-label">
+                            CURRENT RECOVERY RATE
+                        </span>
+
+
+                        <strong id="recoveryRate">
+                            0%
+                        </strong>
+
+
+                        <span class="recovery-stat-caption">
+                            Across recovery candidates
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ================= BUILDATHON CONTROLS ================= -->
+
+                <div class="demo-actions">
+
+
+                    <button
+                        class="demo-btn generate-btn"
+                        onclick="generateDemoData()">
+
+                        ⚡ Generate Demo Data
+
+                    </button>
+
+
+                    <button
+                        class="demo-btn recovery-btn"
+                        onclick="runBatchRecovery()">
+
+                        🤖 Run Batch Recovery
+
+                    </button>
+
+
+                    <button
+                        class="demo-btn clear-btn"
+                        onclick="clearAllData()">
+
+                        🗑 Clear Data
+
+                    </button>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="refreshDashboard()">
+
+                        ↻ Refresh Dashboard
+
+                    </button>
+
+
+                </div>
+
+
+                <!-- RESULT MESSAGE -->
+
+                <div
+                    id="resultMessage"
+                    class="result-message">
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================= TRANSACTIONS ================= -->
+
+            <section
+                class="transactions-panel"
+                id="transactions">
+
+
+                <div class="panel-title-row">
+
+
+                    <div>
+
+                        <p class="section-tag">
+                            LIVE TRANSACTION MONITOR
+                        </p>
+
+
+                        <h2>Recent Transactions</h2>
+
+
+                        <p class="panel-description">
+
+                            Monitor transaction status and recovery activity
+                            in real time.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="loadTransactions()">
+
+                        ↻ Refresh
+
+                    </button>
+
+
+                </div>
+
+
+                <div class="table-wrapper">
+
+
+                    <table>
+
+
+                        <thead>
+
+                            <tr>
+
+                                <th>TRANSACTION ID</th>
+
+                                <th>CUSTOMER</th>
+
+                                <th>AMOUNT</th>
+
+                                <th>FAILURE REASON</th>
+
+                                <th>STATUS</th>
+
+                                <th>RETRIES</th>
+
+                                <th>ACTION</th>
+
+                            </tr>
+
+                        </thead>
+
+
+                        <tbody id="transactionsTable">
+
+                            <tr>
+
+                                <td
+                                    colspan="7"
+                                    class="empty-state">
+
+                                    No transactions available yet.
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+
+                    </table>
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================= AUDIT TRAIL ================= -->
+
+            <section
+                class="audit-panel"
+                id="audit">
+
+
+                <div class="panel-title-row">
+
+
+                    <div>
+
+                        <p class="section-tag">
+                            TRANSACTION HISTORY
+                        </p>
+
+
+                        <h2>Audit Trail</h2>
+
+
+                        <p class="panel-description">
+
+                            Select a transaction to view its complete
+                            recovery history.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="closeAuditTrail()">
+
+                        Clear
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="auditContent"
+                    class="audit-empty">
+
+
+                    Select
+                    <strong>View Audit</strong>
+                    from any transaction to see the complete event timeline.
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================= AI DECISION ================= -->
+
+            <section
+                class="ai-decision-panel"
+                id="aiDecision">
+
+
+                <div class="panel-title-row">
+
+
+                    <div>
+
+                        <p class="section-tag">
+                            AI INTELLIGENCE
+                        </p>
+
+
+                        <h2>AI Recovery Decision</h2>
+
+
+                        <p class="panel-description">
+
+                            Select a failed transaction to view the
+                            AI recovery recommendation.
+
+                        </p>
+
+                    </div>
+
+
+                    <button
+                        class="secondary-btn"
+                        onclick="clearAIDecision()">
+
+                        Clear
+
+                    </button>
+
+
+                </div>
+
+
+                <div
+                    id="aiDecisionContent"
+                    class="ai-empty-state">
+
+
+                    🤖 Select a transaction and click
+
+                    <strong>AI Decision</strong>
+
+                    to analyze its recovery strategy.
+
+
+                </div>
+
+
+            </section>
+
+
+            <!-- ================= BOTTOM SECTION ================= -->
+
+            <section class="bottom-grid">
+
+
+                <!-- RECOVERY STRATEGY -->
+
+                <article class="info-panel">
+
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                RECOVERY LOGIC
+                            </span>
+
+                            <h2>Recovery Strategy</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="strategy-list">
+
+
+                        <div class="strategy-item">
+
+
+                            <div class="strategy-icon retry-icon">
+                                ↻
+                            </div>
+
+
+                            <div class="strategy-content">
+
+                                <strong>
+                                    Automatic Retry
+                                </strong>
+
+
+                                <p>
+
+                                    Network errors and payment timeouts
+                                    are eligible for bounded automatic retry.
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="strategy-item">
+
+
+                            <div class="strategy-icon intervention-icon">
+                                !
+                            </div>
+
+
+                            <div class="strategy-content">
+
+                                <strong>
+                                    Customer Intervention
+                                </strong>
+
+
+                                <p>
+
+                                    Payment failures requiring another action
+                                    are routed for customer intervention.
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                        <div class="strategy-item">
+
+
+                            <div class="strategy-icon stop-icon">
+                                ■
+                            </div>
+
+
+                            <div class="strategy-content">
+
+                                <strong>
+                                    Stopping Rules
+                                </strong>
+
+
+                                <p>
+
+                                    Retry limits prevent repeated recovery
+                                    attempts and enforce bounded workflows.
+
+                                </p>
+
+                            </div>
+
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+                <!-- SYSTEM STATUS -->
+
+                <article class="info-panel">
+
+
+                    <div class="panel-heading">
+
+                        <div>
+
+                            <span class="section-label">
+                                SYSTEM HEALTH
+                            </span>
+
+                            <h2>Operational Status</h2>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="status-list">
+
+
+                        <div class="status-row">
+
+                            <div>
+
+                                <strong>
+                                    Backend API
+                                </strong>
+
+                                <span>
+                                    FastAPI service
+                                </span>
+
+                            </div>
+
+
+                            <span class="status-pill">
+
+                                <span></span>
+
+                                Online
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <div>
+
+                                <strong>
+                                    Recovery Agent
+                                </strong>
+
+                                <span>
+                                    AI workflow execution
+                                </span>
+
+                            </div>
+
+
+                            <span class="status-pill">
+
+                                <span></span>
+
+                                Active
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <div>
+
+                                <strong>
+                                    SQLite Database
+                                </strong>
+
+                                <span>
+                                    Persistent transaction storage
+                                </span>
+
+                            </div>
+
+
+                            <span class="status-pill">
+
+                                <span></span>
+
+                                Connected
+
+                            </span>
+
+                        </div>
+
+
+                        <div class="status-row">
+
+                            <div>
+
+                                <strong>
+                                    Audit Trail
+                                </strong>
+
+                                <span>
+                                    Event monitoring
+                                </span>
+
+                            </div>
+
+
+                            <span class="status-pill">
+
+                                <span></span>
+
+                                Recording
+
+                            </span>
+
+                        </div>
+
+
+                    </div>
+
+
+                </article>
+
+
+            </section>
+
+
+            <!-- ================= FOOTER ================= -->
+
+            <footer class="dashboard-footer">
+
+                <span>
+                    RazorRecover Recovery Operations
+                </span>
+
+                <span>•</span>
+
+                <span>
+                    AI-powered revenue recovery workflow
+                </span>
+
+            </footer>
+
+
+        </main>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
